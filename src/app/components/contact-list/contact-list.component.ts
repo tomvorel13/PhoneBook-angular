@@ -1,5 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { DataService } from "../../services/data.service";
+
+import { Contact } from '../../models/Contact';
 
 @Component({
   selector: "app-contact-list",
@@ -7,29 +10,13 @@ import { Router } from '@angular/router';
   styleUrls: ["./contact-list.component.css"]
 })
 export class ContactListComponent implements OnInit {
-  contacts = [
-    {
-      firstName: "John",
-      lastName: "Malarkey",
-      phone: 123456789
-    },
-    {
-      firstName: "Ben",
-      lastName: "Wilkins",
-      phone: 987456123
-    },
-    {
-      firstName: "Larry",
-      lastName: "Smith",
-      phone: 456789123
-    }
-  ];
+  contacts: Contact[];
 
-  constructor() {}
+  constructor(public dataService: DataService) {}
 
-  ngOnInit() {}
-
-  onDeleteContact(){
-
+  ngOnInit() {
+    this.contacts = this.dataService.getContacts();
   }
+
+  onDeleteContact() {}
 }

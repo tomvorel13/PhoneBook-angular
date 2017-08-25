@@ -9,6 +9,9 @@ import { ContactComponent } from './components/contact/contact.component';
 import { AddContactComponent } from './components/add-contact/add-contact.component';
 import { DashboardComponent } from './components/dashboard/dashboard.component';
 
+//Service
+import { DataService } from './services/data.service';
+
 //Routes
 const appRoutes: Routes = [
   { path: '', component: DashboardComponent},
@@ -26,7 +29,7 @@ const appRoutes: Routes = [
     DashboardComponent
   ],
   imports: [BrowserModule, RouterModule.forRoot(appRoutes)],
-  providers: [],
+  providers: [DataService],
   bootstrap: [AppComponent]
 })
 export class AppModule {}
