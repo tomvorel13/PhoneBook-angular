@@ -29,4 +29,12 @@ getContacts(){
   return this.contacts;
 }
 
+deleteContact(contact:Contact){
+  for(let i = 0; i < this.contacts.length; i++){
+    if(contact == this.contacts[i]){
+      this.contacts.splice(i, 1);
+    }
+  }
+}
+
 }
